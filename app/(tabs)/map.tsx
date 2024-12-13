@@ -1,17 +1,15 @@
 import { View } from "react-native";
 import { Marker } from "react-native-maps";
 import { Map } from "@/components/Map";
+import { MARKER_COORDINATES } from "@/constants/coordinates";
 
 export default function Index() {
   return (
     <View>
       <Map>
-        <Marker
-          coordinate={{
-            latitude: 42.69796785238605,
-            longitude: 23.320808744181843,
-          }}
-        />
+        {MARKER_COORDINATES.map((item, key) => {
+          return <Marker coordinate={item} key={key} />;
+        })}
       </Map>
     </View>
   );

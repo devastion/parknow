@@ -3,11 +3,23 @@ import MapView from "react-native-maps";
 import { StyleSheet } from "react-native";
 
 interface MapProps {
-  children: React.ReactNode;
+  children: any;
 }
 
 export function Map({ children }: MapProps) {
-  return <MapView style={styles.map}>{children}</MapView>;
+  return (
+    <MapView
+      initialRegion={{
+        latitude: 42.694012,
+        longitude: 23.3135,
+        latitudeDelta: 0.003,
+        longitudeDelta: 0.003,
+      }}
+      style={styles.map}
+    >
+      {children}
+    </MapView>
+  );
 }
 
 const styles = StyleSheet.create({
