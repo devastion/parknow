@@ -2,8 +2,12 @@ import React from "react";
 import MapView from "react-native-maps";
 import { StyleSheet } from "react-native";
 
-export function Map() {
-  return <MapView style={styles.map} />;
+interface MapProps {
+  children: React.ReactNode;
+}
+
+export function Map({ children }: MapProps) {
+  return <MapView style={styles.map}>{children}</MapView>;
 }
 
 const styles = StyleSheet.create({
