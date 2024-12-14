@@ -1,5 +1,14 @@
 import React from "react";
-import { View, Text, Alert, StyleSheet, Modal, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  Alert,
+  StyleSheet,
+  Modal,
+  Pressable,
+  Button,
+  FlatList,
+} from "react-native";
 import { Marker } from "react-native-maps";
 import { Map } from "@/components/Map";
 import { useMarkersStore } from "@/stores/markers";

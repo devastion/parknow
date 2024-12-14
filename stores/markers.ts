@@ -5,6 +5,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 interface MarkersState {
   markers: Marker[];
   deleteMarker: (marker: Marker) => void;
+  addMarker: (marker: Marker) => void;
 }
 export const useMarkersStore = create<MarkersState>()(
   persist(
@@ -15,6 +16,10 @@ export const useMarkersStore = create<MarkersState>()(
           markers: state.markers.filter(
             (m: (typeof MARKER_DATA)[number]) => m.id !== marker.id,
           ),
+        })),
+      addMarker: (item: any) =>
+        set((state: any) => ({
+          markers: [...state.markers, item],
         })),
     }),
     {

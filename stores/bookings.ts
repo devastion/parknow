@@ -7,6 +7,10 @@ export const useBookingsStore = create<any>()(
       bookings: [],
       addBooking: (booking: any) =>
         set((state: any) => ({ bookings: [...state.bookings, booking] })),
+      removeBooking: (booking: any) =>
+        set((state: any) => ({
+          bookings: state.bookings.filter((st: any) => st.id !== booking.id),
+        })),
     }),
     {
       name: "bookings-storage",
